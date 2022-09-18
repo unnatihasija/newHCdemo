@@ -1,0 +1,19 @@
+_schema-version: "2.1"
+ID: newHCproject
+version: 0.0.1
+modules:
+- name: HCdb
+  type: hdb
+  path: HCdb
+  requires:
+  - name: hdi_HCdb
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: hdi_HCdb
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      schema: HCDB
+  properties:
+    hdi-container-name: ${service-name}
